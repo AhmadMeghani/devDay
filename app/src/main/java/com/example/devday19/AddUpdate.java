@@ -33,7 +33,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -154,7 +156,7 @@ public class AddUpdate extends AppCompatActivity {
         });
     }
 
-    private void Sending(final String loc, final String details, final String type) {
+    private void Sending(final String details, final String loc, final String type) {
 
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -166,6 +168,7 @@ public class AddUpdate extends AppCompatActivity {
 
 
                 mDatabaseReference.child(Code).child("Location").setValue(loc);
+                mDatabaseReference.child(Code).child("Time").setValue(getTime());
                 mDatabaseReference.child(Code).child("Details").setValue(details);
                 mDatabaseReference.child(Code).child("type").setValue(type).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -234,5 +237,13 @@ public class AddUpdate extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public static String getTime(){
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String formattedDate = df.format(c.getTime());
+        Log.d("date", "watermark: " + formattedDate);
+        return formattedDate;
     }
 }

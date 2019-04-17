@@ -78,7 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Places"
+                android:text="Location"
                 android:background="@drawable/btndesign"
                 />
 
@@ -92,7 +92,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Location"
+                android:text="Places"
                 android:background="@drawable/btndesign"
                 />
 
