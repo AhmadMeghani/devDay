@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "193853721647",
+    "firebase_url": "https://devday19-adbe4.firebaseio.com",
+    "project_id": "devday19-adbe4",
+    "storage_bucket": "devday19-adbe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193853721647:android:9e64a2188fafe24a",
+        "android_client_info": {
+          "package_name": "com.example.devday19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193853721647-7qfhe2357lr5ucnnhif9k57l50hmul5o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.devday19",
+            "certificate_hash": "c2f6a21757d0b6e006ef93707d52b2cc098f3a0e"
+          }
+        },
+        {
+          "client_id": "193853721647-mdqmj286581ldun5aqf19rjjbhvs3h6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClIJV_Fo3yb05pMze4MVYEEgsadSWZbQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193853721647-mdqmj286581ldun5aqf19rjjbhvs3h6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
