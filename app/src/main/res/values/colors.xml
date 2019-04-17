@@ -6,4 +6,7 @@
     <color name="colorAccent">#2c394a</color>
     <color name="linkblue">#005ce6</color>
     <color name="contrastcolor">#2c394a</color>
+    <color name="start">#280A64</color>
+    <color name="end">#320F36</color>
+    <color name="textClr">#F2F2F2</color>
 </resources>
