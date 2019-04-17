@@ -13,12 +13,24 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +44,12 @@ public class AddUpdate extends AppCompatActivity {
     LocationManager locationManager;
     LocationListener listener;
     String address;
+    ImageButton send;
+    EditText Input;
     TextView locTxt;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +58,9 @@ public class AddUpdate extends AppCompatActivity {
         location = findViewById(R.id.location);
         locTxt = findViewById(R.id.loc_txt);
         place = findViewById(R.id.place);
+        send = findViewById(R.id.send);
+        Input = findViewById(R.id.input);
+
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         quantity = findViewById(R.id.quantity_spinner);
         ArrayList<String> heads = new ArrayList<>();
@@ -56,13 +76,37 @@ public class AddUpdate extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_style, heads);
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantity.setAdapter(adapter);
+        listener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                Log.i("Tag", location + "");
+                updateLocationInfo(location);
+            }
 
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+        locationUpdater();
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener = new LocationListener() {
                     @Override
                     public void onLocationChanged(Location location) {
+                        Log.i("Tag", location + "");
+                        locationUpdater();
                         updateLocationInfo(location);
                     }
 
@@ -87,9 +131,59 @@ public class AddUpdate extends AppCompatActivity {
         place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Sending(Input.getText().toString(),locTxt.getText().toString(),quantity.getSelectedItem().toString());
 
             }
         });
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("AddUpdate");
+        //Offline
+        mDatabaseReference.keepSynced(true);
+
+        mAuth = FirebaseAuth.getInstance();
+
+
+
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sending(Input.getText().toString(),locTxt.getText().toString(),quantity.getSelectedItem().toString());
+
+            }
+        });
+    }
+
+    private void Sending(final String loc, final String details, final String type) {
+
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int code =1;
+                int size = (int) dataSnapshot.getChildrenCount();
+                int finalcode = code+size;
+                final String Code = String.valueOf(finalcode);
+
+
+                mDatabaseReference.child(Code).child("Location").setValue(loc);
+                mDatabaseReference.child(Code).child("Details").setValue(details);
+                mDatabaseReference.child(Code).child("type").setValue(type).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(AddUpdate.this, "Update has been Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
     }
 
