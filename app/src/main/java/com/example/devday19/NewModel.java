@@ -7,7 +7,7 @@ public class NewModel {
     private String Time;
     private String type;
     private String email;
-    public NewModel(String details) {
+    public NewModel() {
 
     }
 

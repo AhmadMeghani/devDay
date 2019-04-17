@@ -51,10 +51,10 @@ class TabsPagerAdapter extends FragmentPagerAdapter {
                 return "Social";
 
             case 1:
-                return "News";
+                return "Updates";
 
             case 2:
-                return "Updates";
+                return "News";
 
             default:
                 return null;

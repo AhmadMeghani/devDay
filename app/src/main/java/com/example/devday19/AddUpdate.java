@@ -166,7 +166,10 @@ public class AddUpdate extends AppCompatActivity {
                 int finalcode = code+size;
                 final String Code = String.valueOf(finalcode);
 
+                String useremail = mAuth.getCurrentUser().getEmail();
 
+
+                mDatabaseReference.child(Code).child("email").setValue(useremail);
                 mDatabaseReference.child(Code).child("Location").setValue(loc);
                 mDatabaseReference.child(Code).child("Time").setValue(getTime());
                 mDatabaseReference.child(Code).child("Details").setValue(details);

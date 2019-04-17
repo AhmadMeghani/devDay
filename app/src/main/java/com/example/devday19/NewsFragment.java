@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -40,10 +41,15 @@ public class NewsFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_news, container, false);
-
         allnewsList = (RecyclerView) view.findViewById(R.id.all_news_list);
+        //allnewsList.setHasFixedSize(true);
+       // allnewsList.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
         allnewsList.setHasFixedSize(true);
-        allnewsList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        allnewsList.setLayoutManager(layoutManager);
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("AddUpdate");
 
@@ -57,7 +63,25 @@ public class NewsFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        FirebaseRecyclerAdapter<NewModel,AllNewsViewHolder> firebaseRecyclerAdapter
+                = new FirebaseRecyclerAdapter<NewModel, AllNewsViewHolder>(
+                        NewModel.class,
+                R.layout.newslayout,
+                AllNewsViewHolder.class,
+                mDatabaseReference
+        ) {
+            @Override
+            protected void populateViewHolder(AllNewsViewHolder viewHolder, NewModel model, int position) {
 
+                viewHolder.setEmail(model.getEmail());
+                viewHolder.setLocation(model.getLocation());
+                viewHolder.setDetails(model.getDetails());
+                viewHolder.setType(model.getType());
+                viewHolder.setTime(model.getTime());
+
+            }
+        };
+        allnewsList.setAdapter(firebaseRecyclerAdapter);
     }
 
     public static class AllNewsViewHolder extends RecyclerView.ViewHolder{
