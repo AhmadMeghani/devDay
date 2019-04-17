@@ -24,6 +24,7 @@
             android:layout_marginTop="35dp"
             android:text="Add Update"
             android:textSize="40dp"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="parent" />
 
