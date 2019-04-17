@@ -108,7 +108,6 @@ public class AddUpdate extends AppCompatActivity {
                     @Override
                     public void onLocationChanged(Location location) {
                         Log.i("Tag", location + "");
-                        locationUpdater();
                         updateLocationInfo(location);
                     }
 
@@ -209,7 +208,6 @@ public class AddUpdate extends AppCompatActivity {
             e.printStackTrace();
         }
         locTxt.setText(address);
-
     }
 
     private void locationUpdater() {
@@ -222,7 +220,6 @@ public class AddUpdate extends AppCompatActivity {
                 Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 if (lastKnownLocation != null) {
                     updateLocationInfo(lastKnownLocation);
-                    locationManager.removeUpdates(listener);
                 }
             }
         }

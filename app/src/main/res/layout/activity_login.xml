@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@drawable/bg">
 
 
     <include
@@ -14,16 +15,44 @@
 
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/imageView4"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:src="@drawable/pic2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_toolbar" />
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="83dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Is Waqt"
+        android:textAllCaps="false"
+        android:textColor="@color/textClr"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:fontFamily="monospace"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/login_toolbar" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="monospace"
+        android:text="What. Why. Where."
+        android:textColor="@color/textClr"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/login_email"
@@ -75,7 +104,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/btndesign"
+        android:background="#990062"
         android:text="Sign In"
         android:textColor="#ffffff"
         android:textSize="20dp"
@@ -95,7 +124,7 @@
         android:padding="7dp"
         android:text="Don't have account?Sign Up here"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:textColor="@color/linkblue"
+        android:textColor="#990062"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +141,7 @@
         android:text="Forget Password? "
         android:clickable="true"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:textColor="@color/contrastcolor"
+        android:textColor="#990062"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,7 +164,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/login_toolbar" />
-
 
 
 </android.support.constraint.ConstraintLayout>

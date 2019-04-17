@@ -1,171 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddUpdate">
 
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="330dp">
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="8dp"
+            android:text="Add Update"
+            android:textSize="40dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- top toolbar -->
-        <RelativeLayout
+
+        <TextView
+            android:id="@+id/loc_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="ksdsakjbdksdn"
+            android:textSize="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+
+        <Button
+            android:id="@+id/location"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btndesign"
+            android:text="Places"
+            android:textColor="#FFFFFF"
+            tools:layout_editor_absoluteX="245dp"
+            tools:layout_editor_absoluteY="322dp" />
+
+        <Button
+            android:id="@+id/place"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btndesign"
+            android:text="Location"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quantity_spinner" />
+
+
+        <Spinner
+            android:id="@+id/quantity_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Quantity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loc_txt"></Spinner>
+
+
+        <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/relLayout1">
+            android:layout_alignParentStart="true"
 
-            <include layout="@layout/app_bar_toolbar"
-                android:id="@+id/home_toolbar">
-            </include>
+            android:orientation="horizontal"
+            android:padding="5dp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="446dp">
 
-        </RelativeLayout>
 
-
-        <!-- top toolbar -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout2"
-            android:layout_below="@+id/relLayout1">
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:text="Add Update"
-                android:textSize="40dp"
-                android:layout_centerHorizontal="true"/>
-
-           
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout6"
-            android:layout_below="@+id/relLayout2">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/loc_txt"
-                android:text=""
-                android:textSize="30dp"
-                android:layout_centerHorizontal="true"/>
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Write a message.."
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
+
+            <ImageButton
+                android:id="@+id/send"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:padding="5dp"
+                android:src="@drawable/ic_send_txt" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_action_name" />
 
 
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout3"
-            android:layout_below="@+id/relLayout6">
+    </android.support.constraint.ConstraintLayout>
 
 
-            <Button
-                android:id="@+id/location"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="Location"
-                android:background="@drawable/btndesign"
-                />
-
-            <Button
-                android:id="@+id/place"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:textColor="#FFFFFF"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="Places"
-                android:background="@drawable/btndesign"
-                />
-
-
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout4"
-            android:layout_below="@+id/relLayout3">
-
-            <Spinner
-                android:text="Quantity"
-                android:id="@+id/quantity_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"></Spinner>
-
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout5"
-            android:layout_below="@+id/relLayout4">
-
-            <LinearLayout
-                android:id="@+id/layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-
-                android:layout_marginBottom="0dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-
-                <EditText
-                    android:id="@+id/input"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
-                    android:hint="Write a message.."
-                    android:layout_weight="1"
-                    android:padding="10dp"/>
-
-                <ImageButton
-                    android:id="@+id/send"
-                    android:background="@drawable/round_button"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_send_txt"
-                    android:padding="5dp"/>
-
-            </LinearLayout>
-
-
-</RelativeLayout>
-
-
-
-
-
-
-
-
-
-        </RelativeLayout>
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
