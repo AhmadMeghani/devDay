@@ -16,11 +16,12 @@
 
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="35dp"
             android:text="Add Update"
             android:textSize="40dp"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -32,8 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
             android:text="ksdsakjbdksdn"
             android:textSize="10dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,13 +44,15 @@
         <Button
             android:id="@+id/location"
             android:layout_width="125dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/btndesign"
             android:text="Places"
             android:textColor="#FFFFFF"
-            tools:layout_editor_absoluteX="245dp"
-            tools:layout_editor_absoluteY="322dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loc_txt" />
 
         <Button
             android:id="@+id/place"
@@ -57,24 +60,24 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btndesign"
             android:text="Location"
             android:textColor="#FFFFFF"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/quantity_spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/loc_txt" />
 
 
         <Spinner
             android:id="@+id/quantity_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:text="Quantity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loc_txt"></Spinner>
+            app:layout_constraintTop_toBottomOf="@+id/place"></Spinner>
 
 
         <LinearLayout
@@ -83,10 +86,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
 
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginTop="40dp"
             android:orientation="horizontal"
             android:padding="5dp"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="446dp">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quantity_spinner">
 
 
             <EditText
@@ -113,11 +120,9 @@
             android:id="@+id/imageView5"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_action_name" />
+            app:srcCompat="@drawable/ic_action_name"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="35dp" />
 
 
     </android.support.constraint.ConstraintLayout>
